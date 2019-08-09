@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
+<body onload="disableSubmit()">
+    <form novalidate action="http://codeit.ai/codeitCandidates/serverFrontendTest/user/registration" method="post" autocomplete="on">
+        <input type="text" placeholder="Name" maxlength="40" name="name" pattern="[A-Z][A-Za-z' -]{1,40}" required>
+        <input type="text" placeholder="Surname" maxlength="40" name="secondname" pattern="[A-Z][A-Za-z' -]{1,40}" required>
+        <input type="email" placeholder="Email" name="email" pattern="^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" required>
+        <select name="gender" required>
+                <option value="">Пол</option>
+                <option value="male">мужчина</option>
+                <option value="female">женщина</option>
+        </select>
+        <input type="password" placeholder="Password" name="pass" pattern="(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$" required>
+        <div id="conditionsContainer">
+            <input id="conditions" type="checkbox" onchange="activateButton(this)" required>
+            <a href="">Conditions of Agreement</a>
+        </div>
+        <div id="button">
+            <button id="submit" type="submit">Send</button>
+        </div>
+    </form>
+</body>
+</html>
