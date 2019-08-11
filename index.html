@@ -7,23 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script type="text/javascript" src="script.js"></script>
-<body onload="disableSubmit()">
-    <form novalidate action="http://codeit.ai/codeitCandidates/serverFrontendTest/user/registration" method="post" autocomplete="on">
-        <input type="text" placeholder="Name" maxlength="40" name="name" pattern="[A-Z][A-Za-z' -]{1,40}" required>
-        <input type="text" placeholder="Surname" maxlength="40" name="secondname" pattern="[A-Z][A-Za-z' -]{1,40}" required>
-        <input type="email" placeholder="Email" name="email" pattern="^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" required>
+<body onload="Float()">
+    <form action="http://codeit.ai/codeitCandidates/serverFrontendTest/user/registration" method="post">
+        <div id="nameWrapper" class="inputWrapper">
+            <label for="name">Name</label>
+            <input type="text" id="name" maxlength="40" name="name" title="Name may only contain letters and hyphen, and should start with capital letter" pattern="[A-Z][A-Za-z' -]{1,40}" data-placeholder="Enter your name" required>
+        </div>
+        <div id="surnameWrapper" class="inputWrapper">
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" maxlength="40" name="secondname" title="Surname may only contain letters and hyphen, and should start with capital letter" pattern="[A-Z][A-Za-z' -]{1,40}" data-placeholder="Enter your surname" required>
+        </div>
+        <div id="mailWrapper" class="inputWrapper">
+            <label for="mail">Email</label>
+            <input type="email" id="mail" name="email" pattern="^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" data-placeholder="Enter your email" required>
+        </div>
         <select name="gender" required>
-                <option value="">Пол</option>
-                <option value="male">мужчина</option>
-                <option value="female">женщина</option>
+            <option value="">-- Gender --</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
         </select>
-        <input type="password" placeholder="Password" name="pass" pattern="(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$" required>
+        <div id="passWrapper" class="inputWrapper">
+            <label for="pass">Password</label>
+            <input type="password" id="pass" name="pass" title="Password should include at least one capital letter, one number and be at least 8 characters long" pattern="(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$" data-placeholder="Enter your password" required>
+        </div>
         <div id="conditionsContainer">
-            <input id="conditions" type="checkbox" onchange="activateButton(this)" required>
-            <a href="">Conditions of Agreement</a>
+            <input id="conditions" type="checkbox" required>
+            <a href="#" target="_blank">Conditions of Agreement</a>
         </div>
         <div id="button">
-            <button id="submit" type="submit">Send</button>
+            <button id="submit" type="submit"><a href="#" target="_self"> Send</a></button>
         </div>
     </form>
 </body>
