@@ -48,3 +48,21 @@ function Float() {
     FloatLabel.init();
   
   }
+
+function getAPI() {
+    fetch('http://codeit.ai/codeitCandidates/serverFrontendTest/company/getList')
+    .then(res => res.json())
+    .then(data => {
+
+      document.getElementById('total').innerHTML = data.list.length;
+
+      let list = function(companies) {
+        for (var company in companies) {
+          document.getElementById('list').innerHTML += '<li>' + company + '</li>';
+        }
+      }
+      list(data.list);
+
+
+    })
+  }
