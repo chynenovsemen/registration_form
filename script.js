@@ -1,17 +1,18 @@
 "use strict"
 
-function Float() {
+// creating floating labels in html form inputs
+window.onload = function Float() {
 
   const FloatLabel = (() => {
 
-      // add active class and placeholder
+      // adding active class and placeholder
       const handleFocus = (e) => {
         const target = e.target;
         target.parentNode.classList.add('active');
         target.setAttribute('placeholder', target.getAttribute('data-placeholder'));
       };
       
-      // remove active class and placeholder
+      // removing active class and placeholder
       const handleBlur = (e) => {
         const target = e.target;
         if(!target.value) {
@@ -20,14 +21,14 @@ function Float() {
         target.removeAttribute('placeholder');
       };
 
-      // register events
+      // registering events
       const bindEvents = (element) => {
         const floatField = element.querySelector('input');
         floatField.addEventListener('focus', handleFocus);
         floatField.addEventListener('blur', handleBlur);
       };
       
-      // get DOM elements
+      // getting DOM elements
       const init = () => {
         const floatContainers = document.querySelectorAll('.inputWrapper');
 
@@ -45,24 +46,63 @@ function Float() {
       };
     })();
   
-    FloatLabel.init();
+  FloatLabel.init();
   
-  }
+};
 
-function getAPI() {
-    fetch('http://codeit.ai/codeitCandidates/serverFrontendTest/company/getList')
-    .then(res => res.json())
-    .then(data => {
+// companies page
+// loaders
+// let spinner = document.getElementById("spinner");
+// function showSpinner() {
+//   spinner.classList.add("show");
+//   setTimeout(() => {
+//     spinner.className = spinner.className.replace("show", "");
+//   }, 5000);
+// }
 
-      document.getElementById('total').innerHTML = data.list.length;
+// function hideSpinner() {
+//   spinner.className = spinner.className.replace("show", "");
+// }
 
-      let list = function(companies) {
-        for (var company in companies) {
-          document.getElementById('list').innerHTML += '<li>' + company + '</li>';
+// fetching and processing data from the server
+window.onload = function getAPI() {
+  // showSpinner();
+  fetch('http://codeit.ai/codeitCandidates/serverFrontendTest/company/getList')
+  .then(res => res.json())
+  .then(data => {
+    // hideSpinner();
+
+    // processing data got from the server in this scope
+
+    let companiesArr = data.list;
+
+    // getting the total amount of companies and showing it in html
+    document.getElementById('total').innerHTML = companiesArr.length;
+
+    // showing the list of companies in html
+    for (var i=0; i < companiesArr.length; i++) {
+      document.getElementById('list').innerHTML += `<li class="listList" id='${i}'>` + companiesArr[i].name + '</li>';
+      
+    };
+        
+    document.getElementById('list').addEventListener('click', (e) => {
+      if (e.target.tagName === 'LI'){
+        let partners = companiesArr[`${e.target.id}`].partners;
+        for (var i=0; i < partners.length; i++) {
+          document.getElementById('partners').innerHTML += '<li>' + partners[i].name + ', ' + partners[i].value + '</li>';
         }
       }
-      list(data.list);
+    });
 
+    let companiesList = document.getElementsByClassName('listList');
 
-    })
-  }
+    for (var i=0; i < companiesList.length; i++) {
+      companiesList[i].onclick = () => {
+        [].forEach.call(companiesList, () => { 
+          document.getElementById('partners').innerHTML = "";
+        });
+      }
+    }
+    
+  })
+};

@@ -8,18 +8,20 @@
     <script type="text/javascript" src="script.js"></script>
     <title>Companies</title>
 </head>
-<body onload="getAPI()">
-    <section class="companies">
-        <div id="total" ></div>
-    </section>
-    <section class="companies">
-        <ul id="list"></ul>
-    </section>
-    <section id="location" class="companies">
-
-            <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-
-    </section>
-    <section id="news" class="companies"></section>
+<body>
+    <div id="companiesWrapper">
+        <section class="companies">
+            <div id="total"></div>
+        </section>
+        <section class="companies">
+            <!-- <div id="spinner"></div> -->
+            <ul id="list"></ul>
+        </section>
+        <section class="companies">
+            <ul id="partners"></div>
+        </section>
+        <section id="location" class="companies"></section>
+        <section id="news" class="companies"></section>
+    </div>
 </body>
 </html>
