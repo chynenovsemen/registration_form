@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <title>Companies</title>
 </head>
-<body>
+<body onload="getAPI()">
     <div id="companiesWrapper">
         <section class="companies">
             <div id="total"></div>
         </section>
         <section class="companies">
             <!-- <div id="spinner"></div> -->
-            <ul id="list"></ul>
+            <ul id="list" class="select"></ul>
         </section>
-        <section class="companies">
+        <section id="partnersWrapper" class="companies hide">
             <ul id="partners"></div>
         </section>
-        <section id="location" class="companies"></section>
-        <section id="news" class="companies"></section>
+        <!-- <section id="location" class="companies"></section>
+        <section id="news" class="companies"></section> -->
     </div>
 </body>
 </html>

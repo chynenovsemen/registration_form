@@ -169,6 +169,10 @@ li {
     background-color: #ccc;
 }
 
+.hide {
+    display: none;
+}
+
 /* loaders */
 
 /* #spinner{

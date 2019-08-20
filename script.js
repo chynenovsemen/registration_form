@@ -1,7 +1,7 @@
 "use strict"
 
 // creating floating labels in html form inputs
-window.onload = function Float() {
+function Float() {
 
   const FloatLabel = (() => {
 
@@ -65,7 +65,7 @@ window.onload = function Float() {
 // }
 
 // fetching and processing data from the server
-window.onload = function getAPI() {
+function getAPI() {
   // showSpinner();
   fetch('http://codeit.ai/codeitCandidates/serverFrontendTest/company/getList')
   .then(res => res.json())
@@ -80,29 +80,50 @@ window.onload = function getAPI() {
     document.getElementById('total').innerHTML = companiesArr.length;
 
     // showing the list of companies in html
-    for (var i=0; i < companiesArr.length; i++) {
-      document.getElementById('list').innerHTML += `<li class="listList" id='${i}'>` + companiesArr[i].name + '</li>';
+    for (let i=0; i < companiesArr.length; i++) {
+      document.getElementById('list').innerHTML += `<li class="arrElement" id='${i}'>` + companiesArr[i].name + '</li>';
       
     };
         
     document.getElementById('list').addEventListener('click', (e) => {
       if (e.target.tagName === 'LI'){
         let partners = companiesArr[`${e.target.id}`].partners;
-        for (var i=0; i < partners.length; i++) {
+        
+        for (let i=0; i < partners.length; i++) {
           document.getElementById('partners').innerHTML += '<li>' + partners[i].name + ', ' + partners[i].value + '</li>';
+          document.getElementById(`${e.target.id}`).style.backgroundColor = '#ccc';
+          document.getElementById('partnersWrapper').style.display = 'block';
         }
+
+        // hiding partners of the previous company
+        let companiesList = document.getElementsByClassName('arrElement');
+
+        for (let i=0; i < companiesList.length; i++) {
+          companiesList[i].addEventListener('click', () => { 
+            document.getElementById('partners').innerHTML = '';
+            document.getElementById(`${e.target.id}`).style.backgroundColor = null;
+          });
+        }
+
       }
+
     });
 
-    let companiesList = document.getElementsByClassName('listList');
-
-    for (var i=0; i < companiesList.length; i++) {
-      companiesList[i].onclick = () => {
-        [].forEach.call(companiesList, () => { 
-          document.getElementById('partners').innerHTML = "";
-        });
-      }
-    }
-    
   })
 };
+
+// hiding partners' section
+$(document).ready(function() {
+  $('#list').on('click', () => {
+      $('#partnersWrapper:not(".hide")').stop().fadeOut('slow', () => {
+          $(this).addClass('hide');
+          $('#partnersWrapper').fadeIn('slow').removeClass('hide');
+      });
+    });
+  $(document).on('click', (e) => {
+    var $trigger = $('#list, #partnersWrapper');
+    if($trigger !== e.target && !$trigger.has(e.target).length) {
+      $('#partnersWrapper').fadeOut('fast').addClass('.hide');
+    };
+  });
+});
