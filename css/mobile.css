@@ -1,0 +1,107 @@
+* {
+    font-size: 12px;
+}
+
+form {
+    width: 320px;
+    margin: 30px auto;
+    padding: 2px;
+}
+
+.inputWrapper {
+    padding: 0 6px;
+    margin: 2px 2px;
+}
+
+.inputWrapper input {
+    padding: 12px 0 10px;
+}
+
+label {
+    transform: translate(0, 12px) scale(1);
+}
+
+.inputWrapper.active label {
+    transform: translate(0, 3px) scale(.75);
+}
+
+select {
+    padding: 0 6px;
+    margin: 2px 2px;
+    height: 32px;
+}
+
+select option {
+    padding: 12px 0 8px;
+}
+
+#conditionsContainer {
+    height: 32px;
+    margin: 2px 2px;
+    height: 32px;
+}
+
+#conditionsContainer input {
+    margin: 0 8px;
+}
+
+#button {
+    height: 32px;
+    margin: 2px 2px;
+}
+
+button {
+    min-width: 42px;
+    padding: 0 12px;
+}
+
+#sectionsContainer {
+    width: 320px;
+    margin: 15px auto;
+    padding-top: 20px;
+    grid-template-columns: minmax(320px, 380px);
+    grid-gap: 30px;
+}
+
+.companiesSection {
+    width: 300px;
+    height: 300px;
+}
+
+.companiesWrapper {
+    height: 270px;
+}
+
+h3 {
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+#total {
+    font-size: 18px;
+    border: 1px solid #ccc;
+}
+
+li {
+    padding: 7px 7px;
+}
+
+#partnersSection {
+    grid-column: 1 / 1;
+}
+
+#partners {
+    width: 270px;
+}
+
+#partners>li {
+    line-height: 40px;
+    font-size: 18px;
+    padding: 7px 20px;
+}
+
+#percentage {
+    width: 40px;
+    height: 40px;
+    padding: 2px 2px;
+}
