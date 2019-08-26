@@ -2,7 +2,7 @@
 
 // companies page
 // fetching and processing data from the server
-function getAPI() {
+window.onload = function getAPI() {
   // showing loaders
   document.getElementById('total').style.display = 'none';
   document.getElementById('loader1').style.display = 'block';

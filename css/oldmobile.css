@@ -1,0 +1,22 @@
+label {
+    -webkit-transform: translate(0, 12px) scale(1);
+        -ms-transform: translate(0, 12px) scale(1);
+            transform: translate(0, 12px) scale(1);
+}
+
+.inputWrapper.active label {
+    -webkit-transform: translate(0, 3px) scale(.75);
+        -ms-transform: translate(0, 3px) scale(.75);
+            transform: translate(0, 3px) scale(.75);
+}
+
+#sectionsContainer {
+    -ms-grid-columns: minmax(320px, 380px);
+    grid-template-columns: minmax(320px, 380px);
+    grid-gap: 30px;
+}
+
+#partnersSection {
+    -ms-grid-column: 1;
+    grid-column: 1 / 1;
+}

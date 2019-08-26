@@ -6,33 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 500px)" href="css/mobile.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/oldbrowsers.css"/>
+    <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 500px)" href="css/oldmobile.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="script/companies.js"></script>
     <title>Companies</title>
 </head>
-<body onload="getAPI()">
+<body>
     <div id="sectionsContainer">
         <section id="totalSection" class="companiesSection">
             <h3>Total Companies</h3>
             <div id="totalWrapper" class="companiesWrapper">
-                
-                    <img id="loader1" src="https://d3n32ilufxuvd1.cloudfront.net/53b197c1a13869f147fc849e/1123939/upload-f06c0080-95b1-11e8-a77a-adcc45c7aad8.gif" alt="Loading..."></img>
-                
+                <img id="loader1" src="https://d3n32ilufxuvd1.cloudfront.net/53b197c1a13869f147fc849e/1123939/upload-f06c0080-95b1-11e8-a77a-adcc45c7aad8.gif" alt="Loading...">
                 <div id="total"></div>
             </div>
         </section>
         <section id="listSection" class="companiesSection">
             <h3>List of Companies</h2>
             <div id="listWrapper" class="companiesWrapper">
-                    <img id="loader2" src="https://d3n32ilufxuvd1.cloudfront.net/53b197c1a13869f147fc849e/1123939/upload-f06c0080-95b1-11e8-a77a-adcc45c7aad8.gif" alt="Loading..."></img>
+                <img id="loader2" src="https://d3n32ilufxuvd1.cloudfront.net/53b197c1a13869f147fc849e/1123939/upload-f06c0080-95b1-11e8-a77a-adcc45c7aad8.gif" alt="Loading...">
                 <ul id="list"></ul>
-                </div>
             </div>
         </section>
         <section id="partnersSection" class="companiesSection hide">
             <h3>Company partners</h2>
             <div class="companiesWrapper">
-                <ul id="partners"></div>
+                <ul id="partners"></ul>
             </div>
         </section>
     </div>

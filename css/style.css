@@ -8,23 +8,25 @@
 
 a {
     text-decoration: none;
-  }
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
 
 form {
     display: flex;
     flex-direction: column;
     width: 380px;
     margin: 50px auto;
-    padding: 3px;
     border: 1px #ccc solid;
     border-radius: 5px;
 }
 
 .inputWrapper {
-    border: solid 1px #ccc;
-    border-radius: 5px;
     padding: 0 8px;
-    margin: 3px 3px;
+    border-bottom: solid 1px #ccc;
     position: relative;
 }
 
@@ -50,12 +52,16 @@ label {
     letter-spacing: 1px;
 }
 
+#genderWrapper {
+    border-bottom: solid 1px #ccc;
+}
+
 select {
     outline: 0;
-    border: solid 1px #ccc;
+    border: none;
     padding: 0 8px;
-    margin: 3px 3px;
     height: 48px;
+    width: 100%;
 }
 
 select option {
@@ -87,9 +93,8 @@ select option {
 }
 
 button {
-    border: none;
-    border-radius: 2px;
-    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     position: relative;
     height: 100%;
     margin: 0;
@@ -98,28 +103,25 @@ button {
     display: inline-block;
     font-weight: 500;
     text-transform: uppercase;
-    will-change: box-shadow;
-    transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+    transition: box-shadow .2s linear, background-color .2s linear, color .2s linear;
     outline: none;
     cursor: pointer;
-    text-decoration: none;
     text-align: center;
 }
 
 button:hover {
-    background-color: rgba(158, 158, 158, .2);
+    background-color: #ccc;
 }
 
 button:active {
-    background-color: rgba(158, 158, 158, .4);
+    background-color: #ccc;
 }
 
 /* companies page */
 
 #sectionsContainer {
     width: 840px;
-    margin: 0 auto;
-    padding-top: 50px;
+    margin: 50px auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 380px));
     grid-template-rows: 1fr 1fr;

@@ -1,8 +1,8 @@
 'use strict'
 
-// creating floating labels in html form inputs
-function Float() {
-
+window.onload = () => {
+  
+  // creating floating labels in html form inputs
   const FloatLabel = (() => {
 
       // adding active class and placeholder
@@ -47,5 +47,33 @@ function Float() {
     })();
   
   FloatLabel.init();
+
+  // fetching data to the server
+  const signUpForm = document.getElementById('signUp');
+  const url = 'http://codeit.ai/codeitCandidates/serverFrontendTest/user/registration';
   
+  signUpForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(document.getElementById('signUp'));
+    const searchParams = new URLSearchParams();
+
+    for (const pair of formData) {
+      searchParams.append(pair[0], pair[1]);
+    }
+
+    fetch(url, {
+      method: 'post',
+      body: searchParams,
+    }).then(res => res.json())
+      .then(data => {
+        if (data.status === 'OK') {
+          window.location.href = 'companies.html';
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch(err => console.error('Something went wrong:', err));
+  });
+
 };

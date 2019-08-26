@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 500px)" href="css/mobile.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/oldbrowsers.css"/>
+    <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 500px)" href="css/oldmobile.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="script/index.js"></script>
-<body onload="Float()">
-    <form action="http://codeit.ai/codeitCandidates/serverFrontendTest/user/registration" method="post">
+<body>
+    <form id="signUp" name="signUp">
+        <h3>Sign Up</h3>
         <div id="nameWrapper" class="inputWrapper">
             <label for="name">Name</label>
             <input type="text" id="name" maxlength="40" name="name" title="Name may only contain letters and hyphen, and should start with capital letter" pattern="[A-Z][A-Za-z' -]{1,40}" data-placeholder="Enter your name" required>
@@ -22,11 +26,13 @@
             <label for="mail">Email</label>
             <input type="email" id="mail" name="email" pattern="^([a-z0-9_\.\+-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" data-placeholder="Enter your email" required>
         </div>
-        <select name="gender" required>
-            <option value="">-- Gender --</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+        <div id="genderWrapper">
+            <select name="gender" id="gender" required>
+                <option value="">-- Gender --</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
         <div id="passWrapper" class="inputWrapper">
             <label for="pass">Password</label>
             <input type="password" id="pass" name="pass" title="Password should include at least one capital letter, one number and be at least 8 characters long" pattern="(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$" data-placeholder="Enter your password" required>
@@ -36,7 +42,7 @@
             <a href="#" target="_blank">Conditions of Agreement</a>
         </div>
         <div id="button">
-            <button id="submit" type="submit"><a href="companies.html" target="_self"> Send</a></button>
+            <button id="submit" type="submit">Sign Up</button>
         </div>
     </form>
 </body>
